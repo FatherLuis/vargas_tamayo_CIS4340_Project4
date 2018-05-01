@@ -22,7 +22,7 @@ public class BinarySearch
     public BinarySearch(int size)
     {
         numArray = ArraySetUp(size);
-        value = rand.nextInt(100000) + 1;
+        value = rand.nextInt(size) + 1;
     }
     
     private int[] ArraySetUp(int size)
@@ -31,7 +31,7 @@ public class BinarySearch
         
         for(int i = 0; i < size ; i++)
         {
-            arr[i] = rand.nextInt(100000) + 1;   
+            arr[i] = rand.nextInt(size) + 1;   
         }
         
         Arrays.sort(arr);
@@ -45,20 +45,25 @@ public class BinarySearch
     
     public int OriginalSearch()
     {
+        int numIterations = 0;
+        
         int leftBound = 0;
         int rightBound = numArray.length;
         int midIndex = 0;
         
         while (leftBound < rightBound)
         {
+            numIterations += 1;
+            
            midIndex = (int)Math.ceil((leftBound +rightBound)/2.0) - 1;
-           System.out.println("Iterating Index: " + midIndex);
+           //System.out.println("Iterating Index: " + midIndex);
             
             // Check if x is present at mid
             if (numArray[midIndex] == value)
             {
                 System.out.println("FOUND");
-                System.out.println("MidIndex ORG :" + midIndex);
+                System.out.println("Number of Iterations: " + numIterations);
+                //System.out.println("MidIndex ORG :" + midIndex);
                 return midIndex;
             }
             // If x greater, ignore left half
@@ -79,7 +84,8 @@ public class BinarySearch
             if(numArray[leftBound] == value)
             {
                 System.out.println("FOUND2");
-                System.out.println("found ORG :" + leftBound);
+                System.out.println("Number of Iterations: " + numIterations);
+                //System.out.println("found ORG :" + leftBound);
                 return midIndex;
             }
         }
@@ -87,28 +93,32 @@ public class BinarySearch
         // if we reach here, then element was 
         // not present
         System.out.println("NOT FOUND");
-        System.out.println(" ORG :" + leftBound);
+        System.out.println("Number of Iterations: " + numIterations);
+        //System.out.println(" ORG :" + leftBound);
         return -1;
     }
  
     public int SherwoodSearch()
     {
+        int numIterations = 0;
         int leftBound = 0;
         int rightBound = numArray.length;
         int midIndex = 0;
         
         while (leftBound < rightBound)
         {
+            numIterations += 1;
             //midIndex = (int)Math.ceil((leftBound +rightBound)/2.0);
             
             midIndex = leftBound + rand.nextInt(rightBound - leftBound);
-            System.out.println("Iterating Index: " + midIndex);
+            //System.out.println("Iterating Index: " + midIndex);
             
             // Check if x is present at mid
             if (numArray[midIndex] == value)
             {
                 System.out.println("FOUND");
-                System.out.println("found SHR :" + midIndex);
+                System.out.println("Number of Iterations: " + numIterations);
+                //System.out.println("found SHR :" + midIndex);
                 return midIndex;
             }
             // If x greater, ignore left half
@@ -128,7 +138,8 @@ public class BinarySearch
             if(numArray[leftBound] == value)
             {
                 System.out.println("FOUND2");
-                System.out.println("found SHR :" + leftBound);
+                System.out.println("Number of Iterations: " + numIterations);
+                //System.out.println("found SHR :" + leftBound);
                 return midIndex;
             }
         }
@@ -137,7 +148,8 @@ public class BinarySearch
         // if we reach here, then element was 
         // not present
         System.out.println("NOT FOUND");
-        System.out.println("found SHR :" + leftBound);
+        System.out.println("Number of Iterations: " + numIterations);
+        //System.out.println("found SHR :" + leftBound);
         return -1;
     }
     

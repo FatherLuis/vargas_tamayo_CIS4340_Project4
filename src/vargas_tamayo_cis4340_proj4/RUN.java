@@ -5,7 +5,6 @@
  */
 package vargas_tamayo_cis4340_proj4;
 
-import java.util.Random;
 
 /**
  *
@@ -14,16 +13,22 @@ import java.util.Random;
 public class RUN 
 {
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         
-        BinarySearch BS = new BinarySearch(1000000);
-        
-        System.out.println("Original Search");
-        BS.OriginalSearch();
-        
-        System.out.println("\nSherwoord Search");
-        BS.SherwoodSearch();
+        for(int i = 0; i < 5; i++)
+        {
+            BinarySearch BS = new BinarySearch(10000000);
+
+            System.out.println("\nOriginal Search");
+            BS.OriginalSearch();
+
+            //TimeUnit.SECONDS.sleep(5);
+
+            System.out.println("\nSherwoord Search");
+            BS.SherwoodSearch();
+            System.out.println("-----------------------");
+        }
         
         
     
