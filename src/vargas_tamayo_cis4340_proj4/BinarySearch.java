@@ -8,32 +8,57 @@ import java.util.Arrays;
 import java.util.Random;
 
 
-/**
- *
- * @author fathe
- */
+//Class name: 
+//Class Author: Luis E. Vargas Tamayo
+//Purpose of the class: 
+//Date: 2/27/2018
+//List of changes with dates: none
+//Special Notes: 
 public class BinarySearch 
 {
-    
+    //Array
     private int[] numArray;
+    //random object to create an object
     private Random rand = new Random();
+    //random number that is being looked 
     private int value;
     
+    /* 
+    Method Name: BinarySearch()
+    Method Inputted: none
+    Parameters: int
+    Purpose: Constructor
+    Return: none
+    Date:  5/1/2018
+    */ 
     public BinarySearch(int size)
     {
+        //creates the array
         numArray = ArraySetUp(size);
+        //creates the number being looked for in the array
         value = rand.nextInt(size) + 1;
     }
     
+    /* 
+    Method Name: ArraySetUp()
+    Method Inputted: none
+    Parameters: int
+    Purpose: Creates the array
+    Return: Int
+    Date:  5/1/2018
+    */     
     private int[] ArraySetUp(int size)
     {
+        //creates an array
         int[] arr = new int[size];
         
+        //iterates through the array and inserts random numbers
         for(int i = 0; i < size ; i++)
         {
             arr[i] = rand.nextInt(size) + 1;   
         }
         
+        //sorts the array
         Arrays.sort(arr);
         
         
@@ -42,7 +67,14 @@ public class BinarySearch
         return arr;
     }
     
-    
+    /* 
+    Method Name: OriginalSearch()
+    Method Inputted: none
+    Parameters: int
+    Purpose: The Binary Search searches through the random array for the random number generated
+    Return: none
+    Date:  5/1/2018
+    */     
     public int OriginalSearch()
     {
         int numIterations = 0;
@@ -97,7 +129,15 @@ public class BinarySearch
         //System.out.println(" ORG :" + leftBound);
         return -1;
     }
- 
+
+    /* 
+    Method Name: SherwoodSearch()
+    Method Inputted: none
+    Parameters: int
+    Purpose: The Sherwood algorithm searches through the random array for the random number generated
+    Return: int
+    Date:  5/1/2018
+    */   
     public int SherwoodSearch()
     {
         int numIterations = 0;
