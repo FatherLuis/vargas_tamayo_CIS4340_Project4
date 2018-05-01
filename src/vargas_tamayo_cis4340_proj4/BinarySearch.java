@@ -85,8 +85,10 @@ public class BinarySearch
         
         while (leftBound < rightBound)
         {
+            //counts the times this loops
             numIterations += 1;
             
+           //Gets the middle index of the range 
            midIndex = (int)Math.ceil((leftBound +rightBound)/2.0) - 1;
            //System.out.println("Iterating Index: " + midIndex);
             
@@ -147,9 +149,11 @@ public class BinarySearch
         
         while (leftBound < rightBound)
         {
+            //counts the times this loops
             numIterations += 1;
             //midIndex = (int)Math.ceil((leftBound +rightBound)/2.0);
             
+            //gets the random selected upper limit 
             midIndex = leftBound + rand.nextInt(rightBound - leftBound);
             //System.out.println("Iterating Index: " + midIndex);
             
